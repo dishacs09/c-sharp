@@ -1,0 +1,626 @@
+---1st---
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace CalculatorApp {
+class Program {
+static void Main(string[] args) {
+Console.WriteLine("Enter the action to be performed");
+Console.WriteLine("Press 1 for Addition");
+Console.WriteLine("Press 2 for Subtraction");
+Console.WriteLine("Press 3 for Multiplication");
+Console.WriteLine("Press 4 for Division \n");
+int action = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter 1st input");
+int input_1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter 2nd input");
+int input_2 = Convert.ToInt32(Console.ReadLine());
+int result = 0;
+switch (action) {
+case 1: {
+result = Addition(input_1, input_2);
+break;
+}
+case 2: {
+result = Subtraction(input_1, input_2);
+break;
+}
+case 3: {
+result = Multiplication(input_1, input_2);
+break;
+}
+case 4: {
+result = Division(input_1, input_2);
+break;
+}
+default:
+Console.WriteLine("Wrong action!! try again");
+break;
+}
+Console.WriteLine("The result is {0}", result);
+Console.ReadKey();
+}
+//Addition
+public static int Addition(int input_1, int input_2) {
+int result = input_1 + input_2;
+return result;
+}
+//Substraction
+public static int Subtraction(int input_1, int input_2) {
+int result = input_1 - input_2;
+return result;
+}
+//Multiplication
+public static int Multiplication(int input_1, int input_2) {
+int result = input_1 * input_2;
+return result;
+}
+//Division
+public static int Division(int input_1, int input_2) {
+int result = input_1 / input_2;
+return result;
+}
+}
+}
+
+
+---2nd---
+using System;
+public class Armstrong
+{
+public static void Main(string[] args)
+{
+int a, b, c, d;
+for (int i = 1; i <= 1000; i++)
+{
+a = i / 100;
+b = (i - a * 100) / 10;
+c = (i - a * 100 - b * 10);
+d = a * a * a + b * b * b + c * c * c;
+if (i == d)
+{
+System.Console.WriteLine("{0}", i);
+} }}}
+
+
+---3rd---
+
+
+using System;
+public class Substrings
+{
+public static void find_substrings(string input_string)
+{
+int j = 0;
+int i = 0;
+for (i = 1; i <= input_string.Length; i++)
+{
+for (j = 0; j <= input_string.Length - i; j++)
+{
+System.Console.WriteLine(input_string.Substring(j, i));
+}
+}
+}
+public static void Main(string [] args)
+{
+string input_string;
+System.Console.WriteLine("Enter a String :");
+input_string = System.Console.ReadLine();
+find_substrings(input_string);
+}
+}
+
+
+---4th---
+
+
+using System;
+public class Excep
+{
+public static void Main(string[] args)
+{
+// int a,b,result;
+Console.WriteLine("Enter the value for a"); int a = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the value for b");
+int b = Convert.ToInt32(Console.ReadLine()); try
+{
+int result = a / b;
+Console.WriteLine(" The result is:" + result);
+}
+catch (DivideByZeroException e)
+{
+Console.WriteLine(e.Message); Console.ReadLine();
+}
+}
+}
+
+
+----5th---
+
+
+using System;
+class PascalTriangle
+{
+static void Main()
+{
+Console.WriteLine("Enter the number of rows for Pascal's Triangle:");
+int numRows = Convert.ToInt32(Console.ReadLine());
+// Create a two-dimensional array to store Pascal's Triangle
+int[,] triangle = new int[numRows, numRows];
+// Populate the array with Pascal's Triangle values
+for (int i = 0; i < numRows; i++)
+{
+for (int j = 0; j <= i; j++)
+{
+if (j == 0 || j == i)
+{
+triangle[i, j] = 1; // First and last element in each row is 1
+}
+else
+{
+triangle[i, j] = triangle[i - 1, j - 1] + triangle[i - 1, j];
+}
+}
+}
+// Print Pascal's Triangle
+Console.WriteLine("Pascal's Triangle:");
+for (int i = 0; i < numRows; i++)
+{
+for (int j = 0; j <= i; j++)
+{
+Console.Write($"{triangle[i, j]} ");
+}
+Console.WriteLine();
+} } }
+
+
+---6th---
+
+
+using System;
+class FloydsTriangle
+{
+static void Main()
+{
+Console.WriteLine("Enter the number of rows for Floyd's Triangle:");
+int numRows = Convert.ToInt32(Console.ReadLine());
+// Create a jagged array to store Floyd's Triangle
+int[][] triangle = new int[numRows][];
+// Populate the jagged array with Floyd's Triangle values
+int currentNumber = 1;
+for (int i = 0; i < numRows; i++)
+{
+triangle[i] = new int[i + 1]; // Allocate space for each row
+for (int j = 0; j <= i; j++)
+{
+triangle[i][j] = currentNumber++;
+}
+}
+// Print Floyd's Triangle
+Console.WriteLine("Floyd's Triangle:");
+for (int i = 0; i < numRows; i++)
+{
+for (int j = 0; j <= i; j++)
+{
+Console.Write($"{triangle[i][j]} ");
+}
+Console.WriteLine();
+}
+}
+}
+
+
+---7th---
+
+
+using System;
+using System.IO;
+class FileCopy
+{
+static void Main()
+{
+Console.WriteLine
+("Enter the path of the source text file:");
+string sourceFilePath =
+Console.ReadLine();
+Console.WriteLine
+("Enter the path of the destination text file:");
+string destinationFilePath =
+Console.ReadLine();
+try
+{
+Directory.CreateDirectory
+(Path.GetDirectoryName(destinationFilePath));
+string fileContents =
+File.ReadAllText(sourceFilePath);
+File.WriteAllText(destinationFilePath,
+fileContents);
+Console.WriteLine("File copy successful!");
+}
+catch (Exception ex)
+{
+Console.WriteLine($"Error:{ ex.Message}");
+}
+}
+}
+
+
+
+---8th---
+
+
+using System;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Diagnostics.Metrics;
+using System.Xml.Linq;
+class StackImplementation
+{
+static void Main()
+{
+Stack stack = new Stack();
+while (true)
+{
+Console.WriteLine("Choose an option:");
+Console.WriteLine("1. Push");
+Console.WriteLine("2. Pop");
+Console.WriteLine("3. Display");
+Console.WriteLine("4. Exit");
+int choice = GetChoice();
+switch (choice)
+{
+case 1:
+Console.WriteLine("Enter the value to push: ");
+int valueToPush = GetValue();
+stack.Push(valueToPush);
+break;
+case 2:
+int poppedValue = stack.Pop();
+if (poppedValue != -1)
+Console.WriteLine($"Popped element: { poppedValue}");
+break;
+case 3:
+stack.Display();
+break;
+case 4:
+Console.WriteLine("Exiting the program.");
+Environment.Exit(0);
+break;
+default:
+Console.WriteLine("Invalid choice Please choose a valid option.");
+break;
+}
+}
+}
+static int GetChoice()
+{
+int choice;
+while (!int.TryParse(Console.ReadLine(),
+out choice))
+{
+Console.WriteLine("Invalid input. Please enter a number.");
+}
+return choice;
+}
+static int GetValue()
+{
+int value;
+while (!int.TryParse(Console.ReadLine(),
+out value))
+{
+Console.WriteLine("Invalid input. Please enter a number.");
+}
+return value;
+}
+}
+class Stack
+{
+private const int MaxSize = 10;
+private int[] items;
+private int top;
+public Stack()
+{
+items = new int[MaxSize];
+top = -1;
+}
+public void Push(int value)
+{
+if (top == MaxSize - 1)
+{
+Console.WriteLine("Stack overflow! Cannot push more elements.");
+return;
+}
+items[++top] = value;
+Console.WriteLine($"Pushed element:{ value}");
+}
+public int Pop()
+{
+if (top == -1)
+{
+Console.WriteLine("Stack underflow! Cannot pop from an empty stack.");
+return -1; // Return a sentinel value indicating underflow
+}
+int poppedValue = items[top--];
+return poppedValue;
+}
+public void Display()
+{
+if (top == -1)
+{
+Console.WriteLine("Stack is empty.");
+return;
+}
+Console.WriteLine("Stack elements:");
+for (int i = top; i >= 0; i--)
+{
+Console.WriteLine(items[i]);
+}
+}
+}
+
+
+---9th---
+
+
+
+using System;
+class Complex
+{
+private double real;
+private double imaginary;
+// Constructor
+public Complex(double real, double imaginary)
+{
+this.real = real;
+this.imaginary = imaginary;
+}
+// Overloaded addition operator
+public static Complex operator +(Complex c1, Complex c2)
+{
+double realSum = c1.real + c2.real;
+double imaginarySum = c1.imaginary + c2.imaginary;
+return new Complex(realSum, imaginarySum);
+}
+// Display the complex number
+public void Display()
+{
+Console.WriteLine($"Result: {real} + {imaginary}i");
+}
+}
+class Program
+{
+static void Main()
+{
+Console.WriteLine("Enter the first complex number:");
+Console.Write("Real part: ");
+double real1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Imaginary part: ");
+double imaginary1 = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("\nEnter the second complex number:");
+Console.Write("Real part: ");
+double real2 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Imaginary part: ");
+double imaginary2 = Convert.ToDouble(Console.ReadLine());
+// Create Complex objects
+Complex complex1 = new Complex(real1, imaginary1);
+Complex complex2 = new Complex(real2, imaginary2);
+// Use the overloaded addition operator
+Complex result = complex1 + complex2;
+// Display the result
+Console.WriteLine("\nFirst complex number:");
+complex1.Display();
+Console.WriteLine("\nSecond complex number:");
+complex2.Display();
+Console.WriteLine("\nResult of addition:");
+result.Display();
+}
+}
+
+
+
+---10th---
+
+
+using System;
+class Shape
+{
+public virtual void Draw()
+{
+Console.WriteLine("Drawing a generic shape.");
+}
+public virtual void Erase()
+{
+Console.WriteLine("Erasing a generic shape.");
+}
+}
+class Circle : Shape
+{
+public override void Draw()
+{
+Console.WriteLine("Drawing a circle.");
+}
+public override void Erase()
+{
+Console.WriteLine("Erasing a circle.");
+}
+}
+class Triangle : Shape
+{
+public override void Draw()
+{
+Console.WriteLine("Drawing a triangle.");
+}
+public override void Erase()
+{
+Console.WriteLine("Erasing a triangle.");
+}
+}
+class Square : Shape
+{
+public override void Draw()
+{
+Console.WriteLine("Drawing a square.");
+}
+public override void Erase()
+{
+Console.WriteLine("Erasing a square.");
+}
+}
+class Program
+{
+static void Main()
+{
+Shape circle = new Circle();
+Shape triangle = new Triangle();
+Shape square = new Square();
+Console.WriteLine("Demonstrating polymorphism: ");
+DrawAndErase(circle);
+DrawAndErase(triangle);
+DrawAndErase(square);
+}
+static void DrawAndErase(Shape shape)
+{
+shape.Draw();
+shape.Erase();
+Console.WriteLine();
+}
+}
+
+
+---11th---
+
+
+using System;
+abstract class Shape
+{
+public abstract double CalculateArea();
+public abstract double CalculatePerimeter();
+}
+class Circle : Shape
+{
+private double radius;
+public Circle(double radius)
+{
+this.radius = radius;
+}
+public override double CalculateArea()
+{
+return Math.PI * radius * radius;
+}
+public override double CalculatePerimeter()
+{
+return 2 * Math.PI * radius;
+}
+}
+class Triangle : Shape
+{
+private double side1, side2, side3;
+public Triangle(double side1, double side2,
+double side3)
+{
+this.side1 = side1;
+this.side2 = side2;
+this.side3 = side3;
+}
+public override double CalculateArea()
+{
+double s = (side1 + side2 + side3) / 2;
+return Math.Sqrt(s * (s - side1) * (s - side2)
+* (s - side3));
+}
+public override double CalculatePerimeter()
+{
+return side1 + side2 + side3;
+}
+}
+class Program
+{
+static void Main()
+{
+Console.WriteLine("Enter the radius of the circle: ");
+double circleRadius =Convert.ToDouble(Console.ReadLine());
+Circle circle = new Circle(circleRadius);
+Console.WriteLine("Enter the side lengths of the triangle(separated by spaces):");
+string[] triangleSides =
+Console.ReadLine().Split(' ');
+double side1 =
+Convert.ToDouble(triangleSides[0]);
+double side2 =
+Convert.ToDouble(triangleSides[1]);
+double side3 =
+Convert.ToDouble(triangleSides[2]);
+Triangle triangle = new Triangle(side1,
+side2, side3);
+Console.WriteLine("\nCircle - Area: " +
+circle.CalculateArea() + ", Perimeter: " +
+circle.CalculatePerimeter());
+Console.WriteLine("Triangle - Area: " +
+triangle.CalculateArea() + ", Perimeter: " +
+triangle.CalculatePerimeter());
+}
+}
+
+
+---12th----
+
+
+using System;
+// Define the Resizable interface
+interface Resizable
+{
+void ResizeWidth(int width);
+void ResizeHeight(int height);
+}
+// Implement the Resizable interface in the Rectangle class
+class Rectangle : Resizable
+{
+private int width;
+private int height;
+public Rectangle(int width, int height)
+{
+this.width = width;
+this.height = height;
+}
+public void Display()
+{
+Console.WriteLine($"Rectangle - Width: {width}, Height: {height}");
+}
+public void ResizeWidth(int newWidth)
+{
+width = newWidth;
+Console.WriteLine($"Resized width to {newWidth}");
+}
+public void ResizeHeight(int newHeight)
+{
+height = newHeight;
+Console.WriteLine($"Resized height to {newHeight}");
+}
+}
+class Program
+{
+static void Main()
+{
+// Input for initial values
+Console.WriteLine("Enter the initial width of the rectangle:");
+int initialWidth = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the initial height of the rectangle:");
+int initialHeight = Convert.ToInt32(Console.ReadLine());
+// Create an instance of Rectangle
+Rectangle rectangle = new Rectangle(initialWidth, initialHeight);
+// Display the original size of the rectangle
+Console.WriteLine("\nOriginal Size:");
+rectangle.Display();
+// Input for resized values
+Console.WriteLine("\nEnter the new width for resizing:");
+int newWidth = Convert.ToInt32(Console.ReadLine());
+rectangle.ResizeWidth(newWidth);
+Console.WriteLine("Enter the new height for resizing:");
+int newHeight = Convert.ToInt32(Console.ReadLine());
+rectangle.ResizeHeight(newHeight);
+// Display the updated size of the rectangle
+Console.WriteLine("\nUpdated Size:");
+rectangle.Display();
+}
+}
